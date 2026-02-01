@@ -29,7 +29,9 @@ break;
 case BABYLON.PointerEventTypes.POINTERUP:
 isPointerDown = false;
 break;
-
+case BABYLON.PointerEventTypes.POINTERDOWN && pointerInfo.event.button === 0);
+const pickInfo = pointerInfo.pickInfo;
+if (pickInfo.hit) {
 case BABYLON.PointerEventTypes.POINTERMOVE:
 if(isPointterDown) {
 const deltaY = pointerInfo.event.clientY - startY;
