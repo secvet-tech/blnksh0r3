@@ -10,7 +10,7 @@ camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
 const light = new BABYLON.HemisphericLight("light",
 new BABYLON.Vector3(0, 10, 0), scene);
-light.intensity = 0.8;
+light.intensity = 0.7;
 const sphere = BABYLON.MeshBuilder.CreateSphere("sphere",
 {diameter: 2, segments: 34}, scene);
 sphere.position.y = 1;
@@ -28,16 +28,6 @@ break;
 
 case BABYLON.PointerEventTypes.POINTERUP:
 isPointerDown = false;
-break;
-case BABYLON.PointerEventTypes.POINTERDOWN && pointerInfo.event.button === 0);
-const pickInfo = pointerInfo.pickInfo;
-if (pickInfo.hit) {
-case BABYLON.PointerEventTypes.POINTERMOVE:
-if(isPointterDown) {
-const deltaY = pointerInfo.event.clientY - startY;
-camera.position.z += deltaY * scrollSensitivity;
-startY = pointerInfo.event.clientY;
-}
 break;
 }
 });
