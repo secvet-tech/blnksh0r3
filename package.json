@@ -1,0 +1,31 @@
+{
+  "name": "blnksh0r3",
+  "version": "1.0.0",
+  "description": "A canvas for memories in a game engine..",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secvet-tech/blnksh0r3.git"
+  },
+  "keywords": [
+    "Babylon",
+    "Express",
+    "Node",
+    "canvas",
+    "blnksh0r3"
+  ],
+  "author": "_kentho",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/secvet-tech/blnksh0r3/issues"
+  },
+  "homepage": "https://github.com/secvet-tech/blnksh0r3#readme",
+  "dependencies": {
+    "babylonjs": "^8.49.6",
+    "express": "^5.2.1"
+  }
+}
