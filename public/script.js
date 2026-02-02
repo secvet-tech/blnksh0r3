@@ -8,7 +8,7 @@ const camera = new BABYLON.UniversalCamera("camera",
 new BABYLON.Vector3(0, 3, -10), scene);
 camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
-camera.maxZ = 0;
+//camera.maxZ = 0;
 const light = new BABYLON.HemisphericLight("light",
 new BABYLON.Vector3(0, 10, 0), scene);
 light.intensity = 0.7;
