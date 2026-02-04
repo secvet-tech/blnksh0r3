@@ -5,7 +5,7 @@ const engine = new BABYLON.Engine(canvas, true);
 const createScene = function () {
 const scene = new BABYLON.Scene(engine);
 const camera = new BABYLON.UniversalCamera("camera", 
-new BABYLON.Vector3(0, 3, -10), scene);
+new BABYLON.Vector3(0, 5, -10), scene);
 camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
 //camera.maxZ = 0;
@@ -16,9 +16,9 @@ const sphere = BABYLON.MeshBuilder.CreateSphere("sphere",
 {diameter: 2, segments: 34}, scene);
 sphere.position.y = 1;
 const ground = BABYLON.MeshBuilder.CreateGround("ground",
-{width: 144, height: 5}, scene);
+{width: 144, height: 377}, scene);
 let isPointerDown = false;
-let startY = 0;
+let startY = 1;
 const scrollSensitivity = 0.08; 
 scene.onPointerObservable.add((pointerInfo) => {
 switch(pointerInfo.type) {
