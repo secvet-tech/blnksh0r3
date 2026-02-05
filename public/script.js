@@ -4,6 +4,13 @@ const canvas = document.getElementById("renderCanvas");
 const engine = new BABYLON.Engine(canvas, true);
 const createScene = function () {
 const scene = new BABYLON.Scene(engine);
+const skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+const skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+skyboxMaterial.backFaceCulling = false;
+skyboxMaterial.disableLighting = true;
+skybox.material = skyboxMaterial;
+skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("/image-assets/space", scene);
+skybox.infiniteDistance = true;
 const camera = new BABYLON.UniversalCamera("camera", 
 new BABYLON.Vector3(0, 5, -10), scene);
 camera.setTarget(BABYLON.Vector3.Zero());
@@ -24,6 +31,9 @@ if(pointerInfo.type === BABYLON.PointerEventTypes.POINTERWHEEL) {
 const event = pointerInfo.event;
 camera.position.z += event.deltaY * 0.1;
 };
+if(pointerInfo.type === BABYLON.PointerEventTypes.POINTERDOWN) {
+const event = pointerInfo.event;
+createGlowingSphere();
 });
 return scene;
 };
