@@ -31,9 +31,38 @@ if(pointerInfo.type === BABYLON.PointerEventTypes.POINTERWHEEL) {
 const event = pointerInfo.event;
 camera.position.z += event.deltaY * 0.1;
 };
+});
+scene.onPointerObservable.add((pointerInfo) => { 
 if(pointerInfo.type === BABYLON.PointerEventTypes.POINTERDOWN) {
 const event = pointerInfo.event;
+// Inside your POINTERDOWN block:
+const sphere = BABYLON.MeshBuilder.CreateSphere("greenOrb", { diameter: 2, segments:34 }, scene);
+
+// Get the camera's forward vector (0,0,1) in local space and transform it to world space
+const forward = camera.getDirection(BABYLON.Vector3.Forward());
+
+// New Position = Camera Position + (Forward Vector * distance)
+sphere.position = camera.position.add(forward.scale(10));
+
+// Apply material...
+const createGlowingSphere = () => {
+    // 1. Get the point 10 units in front of the camera
+
+    // 3. TODO: Apply the green emissive material
+// Inside your createGlowingSphere function:
+
+// 1. Create the material
+const sphereMaterial = new BABYLON.StandardMaterial("sphereMat", scene);
+
+// 2. Set the color (Red, Green, Blue)
+sphereMaterial.emissiveColor = new BABYLON.Color3(0, 1, 0); // Pure bright green
+
+// 3. Apply it to the sphere
+sphere.material = sphereMaterial;
+console.log("sphere created");
+};
 createGlowingSphere();
+};
 });
 return scene;
 };
